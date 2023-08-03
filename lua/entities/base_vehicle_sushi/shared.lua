@@ -18,7 +18,7 @@ ENT.Sounds = {
 function ENT:SetupDataTables()
 	self:NetworkVar("Int", 0, "WS")
 	self:NetworkVar("Int", 1, "AD")
-	self:NetworkVar("Int", 2, "Sprint")
+	self:NetworkVar("Int", 2, "SprintWalk")
 	
 	self:NetworkVar("Float", 0, "Health")
 	
@@ -27,6 +27,9 @@ function ENT:SetupDataTables()
 	self:NetworkVar("Bool", 0, "On")
 	self:NetworkVar("Bool", 1, "LightsOn")
 	self:NetworkVar("Bool", 2, "Destroyed")
+	self:NetworkVar("Bool", 3, "Jump")
+	self:NetworkVar("Bool", 4, "Attack")
+	self:NetworkVar("Bool", 5, "Attack2")
 	
 	if SERVER then
 		self:NetworkVarNotify("Destroyed", function(_, old, new)

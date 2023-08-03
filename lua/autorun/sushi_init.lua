@@ -1,4 +1,4 @@
-sushi_base_lib = sushi_base_lib or {}
+sushi = sushi or {}
 
 local LoadFolder(path, realm)
 	local realm = realm or "shared"
@@ -14,12 +14,12 @@ local LoadFolder(path, realm)
 end
 
 --Shared
-LoadFolder("sushi_base_lib/")
+LoadFolder("sushi/")
 
 --Server
-LoadFolder("sushi_base_lib/", "client")
+LoadFolder("sushi/", "client")
 
 --Client
-LoadFolder("sushi_base_lib/", "server")
+LoadFolder("sushi/", "server")
 
 
