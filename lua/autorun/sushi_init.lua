@@ -13,13 +13,15 @@ local LoadFolder(path, realm)
 	end
 end
 
---Shared
-LoadFolder("sushi/")
+hook.Add("InitPostEntity", "sushi_init", function()
+	--Shared
+	LoadFolder("sushi/")
 
---Server
-LoadFolder("sushi/", "client")
+	--Server
+	LoadFolder("sushi/", "client")
 
---Client
-LoadFolder("sushi/", "server")
+	--Client
+	LoadFolder("sushi/", "server")
+end)
 
 

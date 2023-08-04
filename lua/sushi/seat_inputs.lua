@@ -39,12 +39,13 @@ if SERVER then
 		if key <=10 then
 			key = ((key - 1) % 10) + 1
 		else
+			if ply ~= vehbase:GetDriver() then return end --Not a driver? don't check for movement inputs.
 			if not ply.sushi.synced_bindings[key] then return end
 			
 			binding = ply.sushi.synced_bindings[key]
 		end
 		
-		hook.Run("sushi_buttons", vehbase, key, binding, true)
+		hook.Run("sushi_buttons", vehbase, ply, key, binding, true)
 	end)	
 	
 	hook.Add("PlayerButtonUp", tag, function(ply, key)
@@ -60,6 +61,7 @@ if SERVER then
 		if key <=10 then
 			key = ((key - 1) % 10) + 1
 		else
+			if not veh.IsDriverSeat then return end
 			if not ply.sushi.synced_bindings[key] then return end
 			
 			binding = ply.sushi.synced_bindings[key]

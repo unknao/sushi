@@ -11,7 +11,7 @@ ENT.Sounds = {
 	Enable = {},
 	Disable = {},
 	OnLoop = {},
-	TakeDamage = {},
+	TakeDamage = {}, --Pick randomly
 	Destroyed = {},
 }
 
@@ -35,19 +35,26 @@ function ENT:SetupDataTables()
 		self:NetworkVarNotify("Destroyed", function(_, old, new)
 			if old == new then return end
 			if new == false then return end
+			
 			self:OnDestroyed()
 		end)
 		
 		self:NetworkVarNotify("On", function(_, old, new)
 			if old == new then return end
+			
 			self:ChangeActiveState(new)
 		end)		
 		
 		self:NetworkVarNotify("LightsOn", function(_, old, new)
 			if old == new then return end
+			
 			self:ChangeLightState(new)
 		end)
 	end
+end
+
+function ENT:IsSushiBase()
+	return true
 end
 
 
