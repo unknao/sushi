@@ -1,19 +1,14 @@
 ENT.Type = "anim"
+ENT.Base = "base_gmodentity"
+
 ENT.PrintName = "Hovercraft"
 ENT.Author = "unknao"
+
 ENT.Information = ""
 ENT.Spawnable = false
 ENT.RenderGroup = RENDERGROUP_BOTH 
 ENT.WarmupTime = 2
 ENT.IsSushiBase = true
-
-ENT.Sounds = {
-	Enable = {},
-	Disable = {},
-	OnLoop = {},
-	TakeDamage = {}, --Pick randomly
-	Destroyed = {},
-}
 
 function ENT:SetupDataTables()
 	self:NetworkVar("Int", 0, "WS")
@@ -51,10 +46,6 @@ function ENT:SetupDataTables()
 			self:ChangeLightState(new)
 		end)
 	end
-end
-
-function ENT:IsSushiBase()
-	return true
 end
 
 

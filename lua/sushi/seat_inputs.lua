@@ -84,7 +84,7 @@ hook.Add("InitPostEntity", "sushi_sync_binds", function()
 	net.SendToServer()
 end)
 
---Thank you Simfphys
+--Thank you Simfphys!
 local function lockControls(lock)
 	net.Start(block_controls)
 	net.WriteBool(lock)

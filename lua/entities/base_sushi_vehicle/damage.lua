@@ -27,13 +27,20 @@ end
 
 function ENT:OnDestroyed()
 	print("oh no, im dead!")
-	--ENT:DestructionEffect()
-	
+	ENT:DoDestructionEffect()
 	if corpse_ttl:GetInt() == 0 then return end
 	
 	timer.Create("sushi_base_ttl_"..self:EntIndex(), corpse_ttl:GetInt(), 1, function()
 		SafeRemoveEntity(self)
 	end)
+end
+
+function ENT:DoDestructionEffect()
+	local Effect = EffectData()
+	Effect:SetOrigin(self:GetPos())
+	Effect:SetMagnitude(100)
+	Effect:SetScale(100)
+	util.Effect("Explosion", Effect, true, true)
 end
 
 

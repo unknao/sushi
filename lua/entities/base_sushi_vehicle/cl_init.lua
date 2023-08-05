@@ -1,6 +1,5 @@
 include("shared.lua")
 
-
 hook.Add("CalcVehicleView", "sushi_base_thirdperson", function(veh, ply, view)
 	if not veh:GetThirdPersonMode() then return end
 	
@@ -22,3 +21,4 @@ hook.Add("CalcVehicleView", "sushi_base_thirdperson", function(veh, ply, view)
 	view.origin = tr.HitPos
 	return view
 end)
+
